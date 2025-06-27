@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Useless Click Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+    .quote {
+      margin-top: 20px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Totally Useless Click Counter</h1>
+  <p>You clicked <span id="count">0</span> times.</p>
+  <button onclick="handleClick()">Click Me</button>
+  <p class="quote" id="quote">“The journey of a thousand miles begins with a single step.”</p>
+
+  <script>
+    let count = 0;
+    const countDisplay = document.getElementById("count");
+    const quoteDisplay = document.getElementById("quote");
+
+    const quotes = [
+      "“Be yourself; everyone else is already taken.”",
+      "“Why fit in when you were born to stand out?”",
+      "“To be or not to be, that is the question.”",
+      "“Clicking is an illusion.”",
+      "“404: Purpose not found.”"
+    ];
+
+    function handleClick() {
+      count++;
+      countDisplay.textContent = count;
+
+      if (Math.random() < 0.2) {
+        count = 0;
+        alert("Oops! The universe reset your progress.");
+        countDisplay.textContent = count;
+      }
+
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteDisplay.textContent = randomQuote;
+    }
+  </script>
+
+</body>
+</html>
